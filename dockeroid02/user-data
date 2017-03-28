@@ -1,0 +1,20 @@
+#cloud-config
+hostname: dockeroid02.local.pruessmann.org
+manage_etc_hosts: true
+
+locale: en_US.UTF-8
+
+runcmd:
+  - [ systemctl, restart, avahi-daemon ]
+
+users:
+  - name: pirate
+    primary-group: users
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users,docker
+    ssh-import-id: gh:docbobo
+    lock_passwd: false
+    passwd: hypriot
+
+packages:
+  - nfs-common

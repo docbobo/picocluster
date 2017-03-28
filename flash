@@ -1,0 +1,5 @@
+#!/bin/sh
+
+FLASH=../flash/Darwin/flash
+
+$FLASH -u $1/user-data -m $1/meta-data $2
